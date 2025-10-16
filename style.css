@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Changed to flex-start to place content at top */
+    min-height: 100vh;
+    background-color: #333;
+    color: #eee;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container {
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #eee;
+}
+
+#game-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 40px);
+    grid-template-rows: repeat(8, 40px);
+    border: 2px solid #555;
+    background-color: #444;
+    gap: 1px;
+    margin: 0 auto; /* Center the grid */
+    width: fit-content; /* Ensure grid does not take full width */
+}
+
+.cell {
+    width: 40px;
+    height: 40px;
+    background-color: #888;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid #aaa; /* Add slight border to cells */
+    box-sizing: border-box;
+}
+
+.cell:hover:not(.revealed):not(.mine) {
+    background-color: #999;
+}
+
+.cell.revealed {
+    background-color: #bbb;
+    cursor: default;
+    border: 1px solid #ccc;
+    color: #333;
+}
+
+.cell.mine {
+    background-color: #f00; /* Color for revealed mines (game over) */
+    color: #fff;
+}
+
+.cell.mine-hit {
+    background-color: #d00; /* Specific color for the mine that was hit */
+}
+
+/* Colors for numbers */
+.mines-around-1 { color: blue; }
+.mines-around-2 { color: green; }
+.mines-around-3 { color: red; }
+.mines-around-4 { color: darkblue; }
+.mines-around-5 { color: darkred; }
+.mines-around-6 { color: teal; }
+.mines-around-7 { color: black; }
+.mines-around-8 { color: gray; }
+
+/* Styles for the BOOM! message */
+h1#game-message {
+    color: red;
+    font-size: 2em;
+    margin-top: 10px;
+    min-height: 1.5em; /* Ensure space even when empty */
+}
